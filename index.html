@@ -1,1 +1,66 @@
-do
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Org7 Records — a sublabel of Cyntron Records, founded by DJ ZL3.">
+	<title>ORG7 RECORDS // RECORDS LABEL</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+		:root { --ink:#eef5ff; --muted:#8c9ab3; --bg:#070a12; --panel:#0d1220; --cyan:#4df3ff; --pink:#ff4fd8; --line:rgba(164,187,220,.18); }
+		* { box-sizing:border-box; }
+		html { scroll-behavior:smooth; }
+		body { margin:0; color:var(--ink); background:var(--bg); font-family:'Space Grotesk',sans-serif; overflow-x:hidden; }
+		body:before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.16; background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px); background-size:48px 48px; mask-image:linear-gradient(to bottom,black,transparent 80%); }
+		.wrap { width:min(1180px,calc(100% - 48px)); margin:auto; }
+		header { height:84px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); position:relative; z-index:2; }
+		.logo { font-weight:700; letter-spacing:.18em; font-size:1.05rem; }.logo b { color:var(--cyan); }
+		nav { display:flex; gap:30px; font:11px 'Space Mono',monospace; letter-spacing:.12em; } nav a { color:var(--muted); text-decoration:none; } nav a:hover { color:var(--cyan); }
+		.hero { min-height:680px; display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:50px; }
+		.hero > div:first-child { animation:rise-in .8s ease both; }.orbital { animation:orbit-in 1.1s .15s ease both; }
+		.eyebrow { color:var(--cyan); font:11px 'Space Mono',monospace; letter-spacing:.22em; margin-bottom:26px; }.eyebrow:before { content:'●'; margin-right:10px; color:var(--pink); }
+		h1 { font-size:clamp(3.5rem,9vw,8.4rem); line-height:.83; letter-spacing:-.09em; margin:0 0 28px; max-width:750px; } h1 span { color:transparent; -webkit-text-stroke:1px #dbe8ff; }
+		.intro { color:var(--muted); max-width:420px; line-height:1.7; font-size:1rem; }.button { display:inline-block; margin-top:25px; padding:15px 22px; color:#071018; background:var(--cyan); font:700 11px 'Space Mono',monospace; letter-spacing:.1em; text-decoration:none; clip-path:polygon(0 0,92% 0,100% 30%,100% 100%,8% 100%,0 70%); }
+		.orbital { width:min(420px,80vw); aspect-ratio:1; margin:auto; border:1px solid rgba(77,243,255,.35); border-radius:50%; position:relative; display:grid; place-items:center; box-shadow:0 0 90px rgba(77,243,255,.12),inset 0 0 70px rgba(255,79,216,.09); transform:rotate(-18deg); }.orbital:before,.orbital:after { content:""; position:absolute; inset:12%; border:1px solid rgba(255,79,216,.6); border-radius:50%; }.orbital:after { inset:27%; border-color:rgba(77,243,255,.5); }.core { width:30%; aspect-ratio:1; background:linear-gradient(135deg,var(--cyan),var(--pink)); border-radius:50%; box-shadow:0 0 50px var(--cyan); }.sat { position:absolute; width:9px; height:9px; border-radius:50%; background:var(--cyan); box-shadow:0 0 18px var(--cyan); top:7%; left:25%; }
+		.ticker { border-block:1px solid var(--line); padding:17px 0; color:var(--pink); overflow:hidden; white-space:nowrap; font:11px 'Space Mono',monospace; letter-spacing:.18em; }.ticker span { margin-right:55px; }
+		section { padding:105px 0; }.section-head { display:flex; justify-content:space-between; align-items:end; margin-bottom:35px; }.section-head h2 { font-size:2.4rem; letter-spacing:-.06em; margin:0; }.section-head p { color:var(--muted); font:11px 'Space Mono',monospace; margin:0; }
+		.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }.card { background:var(--panel); border:1px solid var(--line); padding:24px; min-height:275px; position:relative; overflow:hidden; cursor:pointer; transition:border-color .25s, transform .25s, background .25s; }.card:hover,.card:focus-visible { border-color:var(--cyan); transform:translateY(-6px); background:#111a2b; outline:none; }.card.is-selected { border-color:var(--pink); box-shadow:0 0 24px rgba(255,79,216,.14); }.card:after { content:'OPEN SIGNAL ↗'; position:absolute; right:18px; bottom:18px; color:var(--muted); font:9px 'Space Mono',monospace; opacity:0; transform:translateY(5px); transition:.25s; }.card:hover:after,.card:focus-visible:after,.card.is-selected:after { opacity:1; transform:translateY(0); }.cover { height:125px; margin:-24px -24px 22px; background:linear-gradient(135deg,#151b36,#ff4fd8); position:relative; overflow:hidden; }.cover:before { content:''; position:absolute; inset:18px; border:1px solid rgba(255,255,255,.4); transform:rotate(15deg); }.cover:after { content:'◢'; position:absolute; right:18px; bottom:10px; font-size:70px; color:rgba(255,255,255,.2); }.card:nth-child(2) .cover { background:linear-gradient(135deg,#062e39,#4df3ff); }.card:nth-child(3) .cover { background:linear-gradient(135deg,#32112f,#ff8b4d); }.tag { color:var(--cyan); font:10px 'Space Mono',monospace; }.card h3 { margin:8px 0 8px; font-size:1.2rem; }.card p { color:var(--muted); font-size:.9rem; line-height:1.5; margin:0; }.release-panel { display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; margin-top:18px; padding:20px 24px; border-left:2px solid var(--cyan); background:rgba(13,18,32,.75); }.release-panel strong { display:block; color:var(--pink); font:10px 'Space Mono',monospace; letter-spacing:.12em; margin-bottom:8px; }.release-panel p { color:var(--muted); margin:0; line-height:1.5; }.pulse-button { border:1px solid var(--cyan); background:transparent; color:var(--cyan); padding:12px 16px; font:10px 'Space Mono',monospace; cursor:pointer; transition:.2s; }.pulse-button:hover,.pulse-button:focus-visible { background:var(--cyan); color:var(--bg); outline:none; }.signal-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:70px; border-block:1px solid var(--line); }.signal { padding:25px 18px; background:rgba(13,18,32,.6); }.signal b { display:block; color:var(--cyan); font-size:1.8rem; margin-bottom:8px; }.signal span { color:var(--muted); font:10px 'Space Mono',monospace; }.about { border-left:2px solid var(--pink); padding-left:25px; max-width:700px; font-size:clamp(1.4rem,3vw,2.4rem); line-height:1.25; }.about em { color:var(--cyan); font-style:normal; } footer { padding:28px 0; border-top:1px solid var(--line); display:flex; justify-content:space-between; color:var(--muted); font:10px 'Space Mono',monospace; }
+		@keyframes rise-in { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } } @keyframes orbit-in { from { opacity:0; transform:rotate(-35deg) scale(.85); } to { opacity:1; transform:rotate(-18deg) scale(1); } } @media (prefers-reduced-motion:reduce) { *,*:before,*:after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+		@media(max-width:700px) { .wrap{width:min(100% - 32px,1180px)} nav{display:none}.hero{grid-template-columns:1fr; min-height:650px}.orbital{width:280px}section{padding:70px 0}.cards{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}.release-panel{grid-template-columns:1fr}.signal-grid{grid-template-columns:repeat(2,1fr);margin-top:45px}footer{display:block;line-height:2.2} }
+	</style>
+</head>
+<body>
+	<header class="wrap"><div class="logo">ORG<b>7</b> RECORDS</div><nav><a href="#releases">RELEASES</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav></header>
+	<main>
+		<div class="wrap hero"><div><div class="eyebrow">INDEPENDENT RECORD LABEL // SUBLABEL OF CYNTRON RECORDS</div><h1>FUTURE<br><span>IN MOTION.</span></h1><p class="intro">A forward-facing record label for boundary-pushing sound, new frequencies, and artists building tomorrow's culture.</p><a class="button" href="#releases">ENTER THE SIGNAL ↗</a></div><div class="orbital"><i class="sat"></i><div class="core"></div></div></div>
+		<div class="ticker"><span>✦ ORG7 RECORDS</span><span>✦ FOUNDED BY DJ ZL3</span><span>✦ A CYNTRON RECORDS SUBLABEL</span><span>✦ RELEASING WORLDWIDE</span></div>
+		<section id="releases" class="wrap"><div class="section-head"><h2>Latest releases</h2><p>03 / 07 AVAILABLE NOW</p></div><div class="cards"><article class="card is-selected" tabindex="0" data-release="Neon Memory" data-detail="A four-track night drive through glassy synths and broken rhythms."><div class="cover"></div><span class="tag">ORG7-001 // EP</span><h3>Neon Memory — DJ ZL3</h3><p>Chrome percussion / 124 BPM / 2025</p></article><article class="card" tabindex="0" data-release="Afterimage" data-detail="VANTA bends club pressure into a bright, unstable signal for the after-hours."><div class="cover"></div><span class="tag">ORG7-002 // SINGLE</span><h3>Afterimage — VANTA</h3><p>Night-drive techno / 132 BPM / 2025</p></article><article class="card" tabindex="0" data-release="Soft Collision" data-detail="KAI/RO finds warmth inside impact, pairing soft vocal fragments with heavy low end."><div class="cover"></div><span class="tag">ORG7-003 // EP</span><h3>Soft Collision — KAI/RO</h3><p>Textured electronica / 110 BPM / 2025</p></article></div><div class="release-panel" aria-live="polite"><div><strong id="selected-code">SELECTED // ORG7-001</strong><p id="selected-detail">A four-track night drive through glassy synths and broken rhythms.</p></div><button class="pulse-button" type="button" id="pulse-button">REQUEST PREVIEW</button></div></section>
+		<section class="wrap"><div class="eyebrow">SYSTEM STATUS</div><div class="signal-grid"><div class="signal"><b>07</b><span>ACTIVE SIGNALS</span></div><div class="signal"><b>12</b><span>ARTISTS IN ORBIT</span></div><div class="signal"><b>04</b><span>CITIES CONNECTED</span></div><div class="signal"><b>24/7</b><span>TRANSMISSION WINDOW</span></div></div></section>
+		<section id="about" class="wrap"><div class="eyebrow">THE FREQUENCY</div><p class="about">Org7 Records is a <em>sub-label of Cyntron Records</em>, founded by Softmap. Created by DJ ZL3 for artists who refuse to stand still.</p></section>
+	</main>
+	<footer id="contact" class="wrap"><span>© 2026 ORG7 RECORDS</span><span>FOUNDED BY DJ ZL3 · PARENT LABEL: CYNTRON RECORDS / SOFTMAP</span></footer>
+	<script>
+		const cards = document.querySelectorAll('.card');
+		const selectedCode = document.querySelector('#selected-code');
+		const selectedDetail = document.querySelector('#selected-detail');
+		const pulseButton = document.querySelector('#pulse-button');
+		cards.forEach((card, index) => {
+			const selectRelease = () => {
+				cards.forEach((item) => item.classList.remove('is-selected'));
+				card.classList.add('is-selected');
+				selectedCode.textContent = `SELECTED // ORG7-00${index + 1}`;
+				selectedDetail.textContent = card.dataset.detail;
+			};
+			card.addEventListener('click', selectRelease);
+			card.addEventListener('keydown', (event) => {
+				if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); selectRelease(); }
+			});
+		});
+		pulseButton.addEventListener('click', () => {
+			pulseButton.textContent = 'SIGNAL QUEUED ✓';
+			pulseButton.classList.add('queued');
+			setTimeout(() => { pulseButton.textContent = 'REQUEST PREVIEW'; pulseButton.classList.remove('queued'); }, 1800);
+		});
+	</script>
+</body>
+</html>
