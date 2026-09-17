@@ -25,4 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearTarget) {
     yearTarget.textContent = new Date().getFullYear();
   }
+
+  const releaseForm = document.querySelector('#release-form');
+  const formStatus = releaseForm?.querySelector('.form-status');
+
+  if (releaseForm && formStatus) {
+    releaseForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      formStatus.textContent = 'Release received. We will review your submission and get back to you.';
+      releaseForm.reset();
+    });
+  }
 });

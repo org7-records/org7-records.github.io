@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap');
+
 :root {
   --bg: #071018;
   --bg-alt: #0d1724;
@@ -27,7 +29,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'DM Sans', sans-serif;
   background:
     radial-gradient(circle at top left, rgba(95, 228, 255, 0.18), transparent 30%),
     radial-gradient(circle at bottom right, rgba(255, 99, 214, 0.14), transparent 25%),
@@ -199,6 +201,7 @@ h1, h2, h3, h4 {
   margin: 0 0 1rem;
   line-height: 1.02;
   letter-spacing: -0.05em;
+  font-family: 'Syne', sans-serif;
 }
 
 h1 {
@@ -669,6 +672,11 @@ input, textarea, select {
 textarea {
   min-height: 170px;
   resize: vertical;
+}
+
+.form-status {
+  color: var(--success);
+  margin: 0;
 }
 
 label {

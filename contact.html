@@ -57,16 +57,16 @@
 
           <div class="form-card">
             <span class="tag">Send a message</span>
-            <h3>Artist submission / inquiry</h3>
-            <form>
+            <h3>Submit a release</h3>
+            <form id="release-form">
               <div class="form-row">
                 <label>
                   Name
-                  <input type="text" name="name" placeholder="Your name" />
+                  <input type="text" name="name" placeholder="Your name" required />
                 </label>
                 <label>
                   Email
-                  <input type="email" name="email" placeholder="you@example.com" />
+                  <input type="email" name="email" placeholder="you@example.com" required />
                 </label>
               </div>
 
@@ -82,16 +82,17 @@
                 </label>
                 <label>
                   Project title
-                  <input type="text" name="project" placeholder="Release or concept name" />
+                  <input type="text" name="project" placeholder="Release or concept name" required />
                 </label>
               </div>
 
               <label>
                 Message
-                <textarea name="message" placeholder="Tell us about your project, sound, goals, and timeline."></textarea>
+                <textarea name="message" placeholder="Tell us about your project, sound, goals, and timeline." required></textarea>
               </label>
 
-              <button class="btn" type="submit">Send inquiry</button>
+              <button class="btn" type="submit">Submit a release</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
             </form>
           </div>
         </div>
