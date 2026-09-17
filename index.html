@@ -37,55 +37,182 @@
 	</style>
 </head>
 <body>
-	<aside class="site-sidebar" aria-label="Site navigation and display settings">
-		<div class="sidebar-brand">ORG<b>7</b></div>
-		<p class="sidebar-label">NAVIGATION</p>
-		<nav class="sidebar-nav">
-			<a class="sidebar-link" href="#home">HOME</a>
-			<a class="sidebar-link" href="#releases">RELEASES</a>
-			<a class="sidebar-link" href="#about">ABOUT</a>
-			<a class="sidebar-link" href="#contact">CONTACT</a>
-		</nav>
-	</aside>
-	<header class="wrap"><div class="logo">ORG<b>7</b> RECORDS</div><nav><a href="#releases">RELEASES</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav></header>
-	<main>
-		<div id="home" class="wrap hero"><div><br><div class="eyebrow">INDEPENDENT RECORD LABEL // SUBLABEL OF CYNTRON RECORDS</div><h1>FUTURE<br><span>IN MOTION.</span></h1><p class="intro">A forward-facing record label for boundary-pushing sound, new frequencies, and artists building tomorrow's culture.</p><a class="button" href="#releases">ENTER THE SIGNAL ↗</a></div><div class="orbital"><i class="sat"></i><div class="core"></div></div></div>
-		<div class="ticker"><div class="ticker-track"><span>✦ ORG7 RECORDS</span><span>✦ FOUNDED BY DJ ZL3</span><span>✦ A CYNTRON RECORDS SUBLABEL</span><span>✦ RELEASING WORLDWIDE</span><span>✦ ORG7 RECORDS</span><span>✦ FOUNDED BY DJ ZL3</span><span>✦ A CYNTRON RECORDS SUBLABEL</span><span>✦ RELEASING WORLDWIDE</span></div></div>
-		<section id="releases" class="wrap"><div class="section-head"><h2>Latest releases</h2><p>01 / 03 RELEASES ONLINE</p></div><div class="cards"><article class="card spotify-card is-selected" tabindex="0" data-release="Neon Memory" data-detail="A four-track night drive through glassy synths and broken rhythms."><iframe src="https://open.spotify.com/embed/album/0B16CNpymGXdxTVoBT65Q8?utm_source=generator" title="Neon Memory on Spotify" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></article><article class="card placeholder-card"><span class="tag">ORG7-002 // INCOMING</span><h3>Next signal pending</h3><p>Release details will appear here when the next artist enters orbit.</p></article><article class="card placeholder-card"><span class="tag">ORG7-003 // INCOMING</span><h3>Next signal pending</h3><p>Release details will appear here when the next artist enters orbit.</p></article></div><div class="release-panel" aria-live="polite"><div><strong id="selected-code">SELECTED // ORG7-001</strong><p id="selected-detail">A four-track night drive through glassy synths and broken rhythms.</p></div><button class="pulse-button" type="button" id="pulse-button">REQUEST PREVIEW</button></div></section>
-		<section class="wrap"><div class="eyebrow">SYSTEM STATUS</div><div class="signal-grid"><div class="signal"><b>07</b><span>ACTIVE SIGNALS</span></div><div class="signal"><b>12</b><span>ARTISTS IN ORBIT</span></div><div class="signal"><b>04</b><span>CITIES CONNECTED</span></div><div class="signal"><b>24/7</b><span>TRANSMISSION WINDOW</span></div></div></section>
-		<section id="about" class="wrap"><div class="eyebrow">THE FREQUENCY</div><p class="about">Org7 Records is a <em>sub-label of Cyntron Records</em>, founded by Softmap. Created by DJ ZL3 for artists who refuse to stand still.</p></section>
-	</main>
-	<footer id="contact" class="wrap"><span>© 2026 ORG7 RECORDS</span> <span>FOUNDED BY DJ ZL3 · PARENT LABEL: CYNTRON RECORDS / SOFTMAP</span></footer>
-	<script>
-		const enterButton = document.querySelector('.button');
-		const cards = document.querySelectorAll('.card[data-release]');
-		const selectedCode = document.querySelector('#selected-code');
-		const selectedDetail = document.querySelector('#selected-detail');
-		const pulseButton = document.querySelector('#pulse-button');
-		cards.forEach((card, index) => {
-			const selectRelease = () => {
-				cards.forEach((item) => item.classList.remove('is-selected'));
-				card.classList.add('is-selected');
-				selectedCode.textContent = `SELECTED // ORG7-00${index + 1}`;
-				selectedDetail.textContent = card.dataset.detail;
-			};
-			card.addEventListener('click', selectRelease);
-			card.addEventListener('keydown', (event) => {
-				if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); selectRelease(); }
-			});
-		});
-		enterButton.addEventListener('click', () => {
-			enterButton.classList.remove('is-activating');
-			void enterButton.offsetWidth;
-			enterButton.classList.add('is-activating');
-			setTimeout(() => enterButton.classList.remove('is-activating'), 700);
-		});
-		pulseButton.addEventListener('click', () => {
-			pulseButton.textContent = 'SIGNAL QUEUED ✓';
-			pulseButton.classList.add('queued');
-			setTimeout(() => { pulseButton.textContent = 'REQUEST PREVIEW'; pulseButton.classList.remove('queued'); }, 1800);
-		});
-	</script>
-	<div class="temp"></div>
-</body>
+    <header class="site-header">
+      <div class="container topbar">
+        <a class="brand" href="index.html"><span class="brand-mark">ORG7</span> RECORDS</a>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        <nav class="nav" aria-label="Main navigation">
+          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="releases.html">Releases</a>
+          <a class="nav-link" href="artists.html">Artists</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+          <a class="nav-cta" href="contact.html">Submit work</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Independent record label · Sub-label of Cyntron Records</div>
+            <h1>Future<br /><span class="muted">in motion.</span></h1>
+            <p class="lead">Org7 Records develops forward-thinking music and artist partnerships designed around originality, technical precision, and long-term audience growth.</p>
+            <div class="hero-actions">
+              <a class="btn" href="releases.html">Enter the signal</a>
+              <a class="btn secondary" href="about.html">Learn more</a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="orbit" aria-hidden="true">
+              <span class="orbit-node"></span>
+              <div class="orbit-core"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container stat-strip">
+          <div class="stat-panel">
+            <strong>07</strong>
+            <span>Active signals</span>
+          </div>
+          <div class="stat-panel">
+            <strong>12</strong>
+            <span>Artists in orbit</span>
+          </div>
+          <div class="stat-panel">
+            <strong>04</strong>
+            <span>Cities connected</span>
+          </div>
+          <div class="stat-panel">
+            <strong>24/7</strong>
+            <span>Transmission window</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Why artists choose Org7</h2>
+            <span class="kicker">Creative infrastructure</span>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="icon">◎</div>
+              <span class="tag">Artist-first</span>
+              <h3>Creative direction</h3>
+              <p>We build around the artist's identity and sharpen the story, positioning, and release strategy.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon">▣</div>
+              <span class="tag">Professional</span>
+              <h3>Production standards</h3>
+              <p>Every release follows a disciplined rhythm designed for consistency, quality, and long-term value.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon">◌</div>
+              <span class="tag">Global</span>
+              <h3>Audience reach</h3>
+              <p>We align each release with digital channels, promo timing, and the right audience segments.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Featured release</h2>
+            <span class="kicker">Current signal</span>
+          </div>
+          <div class="showcase">
+            <article class="featured-release">
+              <div class="album-art" aria-hidden="true"></div>
+              <span class="tag">ORG7-001 · 2026</span>
+              <h2>Neon Memory</h2>
+              <p>A four-track night-drive through glassy synth architecture, broken rhythms, and cinematic tension. Built for listeners who value emotional clarity with movement and edge.</p>
+              <div class="release-meta">
+                <span>Genre: Future club</span>
+                <span>Format: Digital</span>
+                <span>Status: Live</span>
+              </div>
+            </article>
+
+            <div class="feature-card">
+              <span class="tag">Catalog notes</span>
+              <h3>What defines an Org7 release</h3>
+              <ul class="mini-list">
+                <li><strong>01</strong><span>High-detail production</span></li>
+                <li><strong>02</strong><span>Focus on mood and impact</span></li>
+                <li><strong>03</strong><span>Strong release narrative</span></li>
+                <li><strong>04</strong><span>Built for repeat listening</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Release archive</h2>
+            <span class="kicker">Selected projects</span>
+          </div>
+          <div class="release-grid">
+            <article class="release-card">
+              <span class="tag">ORG7-001</span>
+              <h3>Neon Memory</h3>
+              <p>Precision-tuned late-night club work with atmospheric depth and rhythmic precision.</p>
+              <span class="release-date">June 2026</span>
+            </article>
+            <article class="release-card">
+              <span class="tag">ORG7-002</span>
+              <h3>Signal Delay</h3>
+              <p>Sharp, dark, and kinetic production designed for dancefloor impact and streaming longevity.</p>
+              <span class="release-date">Aug 2026</span>
+            </article>
+            <article class="release-card">
+              <span class="tag">ORG7-003</span>
+              <h3>Static Season</h3>
+              <p>Atmospheric and immersive pieces with layered textures and elevated emotional pacing.</p>
+              <span class="release-date">Oct 2026</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>The label and its direction</h2>
+            <span class="kicker">About the imprint</span>
+          </div>
+          <div class="showcase">
+            <div class="feature-card">
+              <span class="tag">Foundation</span>
+              <h3>Built by DJ ZL3</h3>
+              <p>Org7 Records was created to support artists with meaningful creative range and the ambition to build a strong identity in a crowded music landscape.</p>
+            </div>
+            <div class="feature-card">
+              <span class="tag">Positioning</span>
+              <h3>Independent with structure</h3>
+              <p>We combine the flexibility of an independent imprint with disciplined planning, release architecture, and a commitment to professional execution.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>© <span data-current-year></span> Org7 Records</span>
+        <span>Founded by DJ ZL3 · Parent label: Cyntron Records</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
